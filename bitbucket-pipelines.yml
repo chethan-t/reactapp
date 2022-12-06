@@ -7,3 +7,9 @@ pipelines:
           script:
             - npm install 
             - npm run build
+            - pipe: atlassian/scp-deploy:0.3.3
+              variables:
+                USER: $user
+                SERVER: $host
+                REMOTE_PATH: /var/www/html/
+                LOCAL_PATH: build/*
